@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "godot-unpack"
+version = "0.1.0"
+description = "Pure-Python readers for Godot export formats: .pck packs, binary resources, project.binary, Variants, and a binary-token GDScript (.gdc) decompiler."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = []
+keywords = ["godot", "pck", "gdscript", "decompiler", "reverse-engineering", "modding"]
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Topic :: Games/Entertainment"]
+
+[project.optional-dependencies]
+zstd = ["zstandard>=0.22"]
+dev = ["pytest>=7", "zstandard>=0.22"]
+
+[project.scripts]
+godot-unpack = "godot_unpack.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
